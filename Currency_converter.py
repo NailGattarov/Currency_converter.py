@@ -2,7 +2,7 @@ import requests
 
 # По курсу ЦБ РФ
 # data = requests.get('https://www.cbr-xml-daily.ru/daily_json.js').json()
-# USD_rate = round(data['Valute']['USD']['Value'], 2)
+# USD_rate = data['Valute']['USD']['Value']
 # По курсу сайта openexchangerates.org
 data = requests.get('https://openexchangerates.org/api/latest.json?app_id=f02103aa3e3a4f58ba88e926982a32d0').json()
 USD_RUB_rate = data['rates']['RUB']
