@@ -75,4 +75,3 @@ def kop_name():
 
 print('За ваши доллары вы получите', '{0:,}'.format(RUB_count_int).replace(',', ' '), ruble_name(), kop_count,
       kop_name())
-print('hello')
