@@ -76,6 +76,7 @@ list3 = [11]
 list4 = [2, 3, 4]
 list5 = [12, 13, 14]
 
+
 # Функции для определения склонения названия валюты
 def ruble_name():
     if one_last_digit_ruble in list1:
