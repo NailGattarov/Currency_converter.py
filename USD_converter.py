@@ -1,9 +1,5 @@
 import requests
 
-# Берем курсы валют с сайта ЦБ РФ
-# data = requests.get('https://www.cbr-xml-daily.ru/daily_json.js').json()
-# USD_rate = data['Valute']['USD']['Value']
-
 # Берем курсы валют с сайта openexchangerates.org
 data = requests.get('https://openexchangerates.org/api/latest.json?app_id=f02103aa3e3a4f58ba88e926982a32d0').json()
 USD_RUB_rate = data['rates']['RUB']
