@@ -9,10 +9,10 @@ USD_RUB_rate = data['rates']['RUB']
 USD_UZS_rate = data['rates']['UZS']
 USD_GEL_rate = data['rates']['GEL']
 
-print(f'''Курс доллара на сегодняшний день:
-    {round(USD_RUB_rate, 2)} рублей
-    {'{0:,}'.format(round(USD_UZS_rate, 2)).replace(',', ' ')} сум
-    {round(USD_GEL_rate, 2)} лари''')
+print('Курс доллара на сегодняшний день:')
+print('\033[34m {} рублей\033[0m'.format(round(USD_RUB_rate, 2)))
+print('\033[34m {0:,} сум\033[0m'.format(round(USD_UZS_rate, 2)).replace(',', ' '))
+print('\033[34m {} лари\033[0m'.format(round(USD_GEL_rate, 2)))
 print('Сколько у вас есть долларов?')
 
 USD_count = None
@@ -20,14 +20,14 @@ while True:
     try:
         USD_count = float(input())
     except ValueError:
-        print("Извините, я вас не понял. Пожалуйста, введите число и повторите попытку")
+        print('\033[31mИзвините, я вас не понял. Пожалуйста, введите число и повторите попытку\033[0m')
         continue
     else:
         break
 if USD_count <= 1000:
-    print('Не так уж и много, но тоже неплохо.')
+    print('\033[33mНе так уж и много, но тоже неплохо.\033[0m')
 else:
-    print('Неплохо, на iphone может и хватит.')
+    print('\033[33mНеплохо, на iphone может и хватит.\033[0m')
 
 RUB_count_int = int(USD_RUB_rate * USD_count)
 RUB_count_round = round(USD_RUB_rate * USD_count, 2)
@@ -124,7 +124,7 @@ def tiin_name():
         return 'тийина'
 
 
-print(f'''За ваши доллары вы получите:
-    {'{0:,}'.format(RUB_count_int).replace(',', ' ')} {ruble_name()} {kop_count} {kop_name()}
-    {'{0:,}'.format(UZS_count_int).replace(',', ' ')} {sum_name()} {tiin_count} {tiin_name()}
-    {'{0:,}'.format(GEL_count_int).replace(',', ' ')} лари {tetri_count} тетри''')
+print('За ваши доллары вы получите:')
+print('\033[34m{0:,}'.format(RUB_count_int).replace(',', ' '), ruble_name(), kop_count, kop_name())
+print('{0:,}'.format(UZS_count_int).replace(',', ' '), sum_name(), tiin_count, tiin_name())
+print('{0:,}'.format(GEL_count_int).replace(',', ' '), 'лари', tetri_count, 'тетри\033[0m')
