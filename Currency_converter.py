@@ -1,20 +1,23 @@
 import requests
 
-# По курсу ЦБ РФ
+# Берем курсы валют с сайта ЦБ РФ
 # data = requests.get('https://www.cbr-xml-daily.ru/daily_json.js').json()
 # USD_rate = data['Valute']['USD']['Value']
-# По курсу сайта openexchangerates.org
+
+# Берем курсы валют с сайта openexchangerates.org
 data = requests.get('https://openexchangerates.org/api/latest.json?app_id=f02103aa3e3a4f58ba88e926982a32d0').json()
 USD_RUB_rate = data['rates']['RUB']
 USD_UZS_rate = data['rates']['UZS']
 USD_GEL_rate = data['rates']['GEL']
 
+# Выводим курсы валют на сегодня
 print('Курс доллара на сегодняшний день:')
 print('\033[34m {} рублей'.format(round(USD_RUB_rate, 2)))
 print(' {0:,} сум'.format(round(USD_UZS_rate, 2)).replace(',', ' '))
 print(' {} лари\033[0m'.format(round(USD_GEL_rate, 2)))
 print('Сколько у вас есть долларов?')
 
+# Просим пользователя ввести количество долларов для обмена
 USD_count = None
 while True:
     try:
@@ -29,10 +32,12 @@ if USD_count <= 1000:
 else:
     print('\033[33mНеплохо, на iphone может и хватит.\033[0m')
 
+# Вычисления
 RUB_count_int = int(USD_RUB_rate * USD_count)
 RUB_count_round = round(USD_RUB_rate * USD_count, 2)
 kop_count = int(round((RUB_count_round - RUB_count_int) * 100),)
 
+# Используем это в помощь для определения склонения названия валюты
 one_last_digit_ruble = int(str(RUB_count_int)[-1])
 try:
     two_last_digits_ruble = int(str(RUB_count_int)[-2:])
@@ -71,7 +76,7 @@ list3 = [11]
 list4 = [2, 3, 4]
 list5 = [12, 13, 14]
 
-
+# Функции для определения склонения названия валюты
 def ruble_name():
     if one_last_digit_ruble in list1:
         return 'рублей'
@@ -124,6 +129,7 @@ def tiin_name():
         return 'тийина'
 
 
+# Выводим результат
 print('За ваши доллары вы получите:')
 print('\033[34m {0:,}'.format(RUB_count_int).replace(',', ' '), ruble_name(), kop_count, kop_name())
 print(' {0:,}'.format(UZS_count_int).replace(',', ' '), sum_name(), tiin_count, tiin_name())
