@@ -10,9 +10,9 @@ USD_UZS_rate = data['rates']['UZS']
 USD_GEL_rate = data['rates']['GEL']
 
 print('Курс доллара на сегодняшний день:')
-print('\033[34m {} рублей\033[0m'.format(round(USD_RUB_rate, 2)))
-print('\033[34m {0:,} сум\033[0m'.format(round(USD_UZS_rate, 2)).replace(',', ' '))
-print('\033[34m {} лари\033[0m'.format(round(USD_GEL_rate, 2)))
+print('\033[34m {} рублей'.format(round(USD_RUB_rate, 2)))
+print(' {0:,} сум'.format(round(USD_UZS_rate, 2)).replace(',', ' '))
+print(' {} лари\033[0m'.format(round(USD_GEL_rate, 2)))
 print('Сколько у вас есть долларов?')
 
 USD_count = None
@@ -125,6 +125,6 @@ def tiin_name():
 
 
 print('За ваши доллары вы получите:')
-print('\033[34m{0:,}'.format(RUB_count_int).replace(',', ' '), ruble_name(), kop_count, kop_name())
-print('{0:,}'.format(UZS_count_int).replace(',', ' '), sum_name(), tiin_count, tiin_name())
-print('{0:,}'.format(GEL_count_int).replace(',', ' '), 'лари', tetri_count, 'тетри\033[0m')
+print('\033[34m {0:,}'.format(RUB_count_int).replace(',', ' '), ruble_name(), kop_count, kop_name())
+print(' {0:,}'.format(UZS_count_int).replace(',', ' '), sum_name(), tiin_count, tiin_name())
+print(' {0:,}'.format(GEL_count_int).replace(',', ' '), 'лари', tetri_count, 'тетри\033[0m')
