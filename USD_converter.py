@@ -31,7 +31,7 @@ else:
 # Вычисления
 RUB_count_int = int(USD_RUB_rate * USD_count)
 RUB_count_round = round(USD_RUB_rate * USD_count, 2)
-kop_count = int(round((RUB_count_round - RUB_count_int) * 100),)
+kop_count = int(round((RUB_count_round - RUB_count_int) * 100))
 
 # Используем это в помощь для определения склонения названия валюты
 one_last_digit_ruble = int(str(RUB_count_int)[-1])
@@ -48,7 +48,7 @@ except IndexError:
 
 UZS_count_int = int(USD_UZS_rate * USD_count)
 UZS_count_round = round(USD_UZS_rate * USD_count, 2)
-tiin_count = int(round((UZS_count_round - UZS_count_int) * 100),)
+tiin_count = int(round((UZS_count_round - UZS_count_int) * 100))
 
 one_last_digit_sum = int(str(UZS_count_int)[-1])
 try:
@@ -64,7 +64,7 @@ except IndexError:
 
 GEL_count_int = int(USD_GEL_rate * USD_count)
 GEL_count_round = round(USD_GEL_rate * USD_count, 2)
-tetri_count = int(round((GEL_count_round - GEL_count_int) * 100),)
+tetri_count = int(round((GEL_count_round - GEL_count_int) * 100))
 
 list1 = [0, 5, 6, 7, 8, 9]
 list2 = [1]
@@ -130,4 +130,4 @@ def tiin_name():
 print('За ваши доллары вы получите:')
 print('\033[34m {0:,}'.format(RUB_count_int).replace(',', ' '), ruble_name(), kop_count, kop_name())
 print(' {0:,}'.format(UZS_count_int).replace(',', ' '), sum_name(), tiin_count, tiin_name())
-print(' {0:,}'.format(GEL_count_int).replace(',', ' '), 'лари', tetri_count, 'тетри\033[0m')
+print(' {0:,} лари'.format(GEL_count_int).replace(',', ' '), tetri_count, 'тетри\033[0m')
